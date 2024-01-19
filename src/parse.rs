@@ -66,3 +66,7 @@ fn get_grammar() -> Grammar {
 
     grammar
 }
+
+fn parse_terminal(t: String) {
+    
+}
