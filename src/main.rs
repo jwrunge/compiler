@@ -1,4 +1,5 @@
 mod lex;
+mod parse;
 
 fn main() {
     let args = std::env::args()
@@ -14,5 +15,6 @@ fn main() {
     let file = std::fs::read_to_string(filename)
         .expect("There was an error reading the file.");
 
-    lex::lex(file);
+    let tokens = lex::lex(file);
+    parse::parse(tokens);
 }

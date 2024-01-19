@@ -1,7 +1,7 @@
 use regex::Regex;
 
 #[derive(Debug, Clone)]
-enum Symbol {
+pub enum Symbol {
     LBrace,
     RBrace,
     LParen,
@@ -18,7 +18,7 @@ struct Token {
     rx: Regex,
 }
 
-pub fn lex(contents: String) {
+pub fn lex(contents: String)-> Vec<(Symbol, String)> {
     let tokens = [
         Token{ symbol: Symbol::LBrace, rx: Regex::new(r"\{").unwrap() },
         Token{ symbol: Symbol::RBrace, rx: Regex::new(r"\}").unwrap() },
@@ -51,4 +51,6 @@ pub fn lex(contents: String) {
             }
         }
     }
+
+    discovered_tokens
 }
