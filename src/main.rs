@@ -1,5 +1,6 @@
 mod lex;
 mod parse;
+mod grammar;
 
 fn main() {
     let args = std::env::args()
