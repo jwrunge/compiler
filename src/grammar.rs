@@ -90,7 +90,20 @@ pub fn match_function() {
 }
 
 pub fn match_statement() {
+// tok = tokens.next()
+    // if tok.type != "RETURN_KEYWORD":
+    //     fail()
+    // tok = tokens.next()
+    // if tok.type != "INT"
+    //     fail()
+    // exp = parse_exp(tokens) //parse_exp will pop off more tokens
+    // statement = Return(exp)
 
+    // tok = tokens.next()
+    // if tok.type != "SEMICOLON":
+    //     fail()
+
+    // return statement
 }
 
 pub fn match_expression() {
