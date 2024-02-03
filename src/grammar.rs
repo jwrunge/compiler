@@ -32,8 +32,6 @@ pub fn get_grammar() -> Grammar {
             .map(|s| s.trim().to_string())
             .collect();
 
-        println!("{:?}", terminals);
-
         match rule {
             "<program>" => grammar.program = lex_grammar(terminals),
             "<function>" => grammar.function = lex_grammar(terminals),
@@ -43,7 +41,6 @@ pub fn get_grammar() -> Grammar {
         };
     }
 
-    println!("{:#?}", grammar);
     grammar
 }
 
@@ -53,7 +50,6 @@ fn lex_grammar(terminals: Vec<String>) -> Vec<Vec<(lex::Symbol, lex::Token)>> {
         let mut components: Vec<(lex::Symbol, lex::Token)> = vec![];
 
         for w in terminal.split_whitespace() {
-            println!("{}", w);
             //Handle literal match
             if w.starts_with("\"") && w.ends_with("\"") {
                 let literal = w.trim_matches('"');
@@ -83,29 +79,4 @@ fn lex_grammar(terminals: Vec<String>) -> Vec<Vec<(lex::Symbol, lex::Token)>> {
     }
 
     ts
-}
-
-pub fn match_function() {
-    
-}
-
-pub fn match_statement() {
-// tok = tokens.next()
-    // if tok.type != "RETURN_KEYWORD":
-    //     fail()
-    // tok = tokens.next()
-    // if tok.type != "INT"
-    //     fail()
-    // exp = parse_exp(tokens) //parse_exp will pop off more tokens
-    // statement = Return(exp)
-
-    // tok = tokens.next()
-    // if tok.type != "SEMICOLON":
-    //     fail()
-
-    // return statement
-}
-
-pub fn match_expression() {
-
 }

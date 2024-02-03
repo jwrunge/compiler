@@ -3,24 +3,24 @@ use crate::lex::Token;
 use crate::grammar;
 
 //Define abstract syntax tree
-struct AST_Program {
-    functions: Vec<AST_Function>,
+struct ASTProgram {
+    functions: Vec<ASTFunction>,
 }
 
-struct AST_Function {
+struct ASTFunction {
     name: String,
     return_type: String,
-    statements: Vec<AST_Statement>,
+    statements: Vec<ASTStatement>,
 }
 
-struct AST_Statement {
-    action: Statement_Action,
-    expression: AstExpression,
+struct ASTStatement {
+    action: StatementAction,
+    expression: ASTExpression,
 }
 
-type AstExpression = String;
+type ASTExpression = String;
 
-enum Statement_Action {
+enum StatementAction {
     Return,
     If,
     While,
@@ -51,6 +51,6 @@ pub fn parse(tokens: Vec<(Symbol, Token)>) {// -> AST_Program {
     // };
 }
 
-fn parse_statement(t: Token, s: String) {
+fn parse_statement(t: Vec<Token>, s: grammar::Grammar) {
     
 }

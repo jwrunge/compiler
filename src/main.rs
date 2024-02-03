@@ -1,6 +1,7 @@
 mod lex;
 mod parse;
 mod grammar;
+mod asm;
 
 fn main() {
     let args = std::env::args()
@@ -18,4 +19,6 @@ fn main() {
 
     let tokens = lex::lex(file);
     parse::parse(tokens);
+
+    let asm_maps = asm::get_asm_maps();
 }

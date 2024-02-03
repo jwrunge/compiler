@@ -48,10 +48,11 @@ pub fn lex(contents: String)-> Vec<(Symbol, Token)> {
     let mut discovered_tokens: Vec<(Symbol, Token)> = vec![];
 
     for line in contents.lines() {
-        for capture in combined_regex.captures_iter(line) {
+        for m in combined_regex.find_iter(line) {
+            let match_str = m.as_str();
             for token in TOKENS.iter() {
-                if token.rx.is_match(&capture[0]) {
-                    let discovered = (token.symbol.clone(), capture[0].to_string());
+                if token.rx.is_match(&match_str) {
+                    let discovered = (token.symbol.clone(), match_str.to_string());
                     discovered_tokens.push(discovered);
                     break;
                 }
